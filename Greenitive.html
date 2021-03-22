@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <script>
+    function myFunction() {
+      document.getElementById("hiding").style.display = "none";
+      document.getElementById("show").style.display = "block";
+      document.getElementById("shoe").style.display = "block";
+      document.getElementById("customers").style.display = "block";
+
+      buildTable(myArray);
+    }
+    var myArray = [
+      { 'CandidateName': 'Michel', 'Contacts': '93334628360', 'Address': 'Bangalore' },
+      { 'CandidateName': 'Parthiban', 'Contacts': '9889999936', 'Address': 'Andra Pradesh' },
+      { 'CandidateName': 'Karthik', 'Contacts': '9233232323', 'Address': 'Kerela' },
+      { 'CandidateName': 'Naveen', 'Contacts': '9432343232', 'Address': 'Tamil Nadu' },
+      { 'CandidateName': 'Mahesh', 'Contacts': '9989898898', 'Address': 'Delhi' },
+      { 'CandidateName': 'Surya', 'Contacts': '9667678686', 'Address': 'Mumbai' },
+    ]
+
+
+    function buildTable(data) {
+
+      var table = document.getElementById('mytable')
+
+      for (var i = 0; i < data.length; i++) {
+        var row = `<tr>
+          
+                        <td> ${data[i].CandidateName}</td>
+                        <td> ${data[i].Contacts}</td>
+                        <td> ${data[i].Address}</td>
+                        <td><button onclick="productDelete(this)" >Delete</button></td>
+                        </tr>`
+        table.innerHTML += row;
+
+      }
+
+    }
+
+    function productDelete(ctl) {
+      $(ctl).parents("tr").remove();
+    }
+
+    function adding() {
+      var table = document.getElementById('mytable')
+      var arr = {
+        "CandidateName": document.getElementById("cname").value,
+        "Contacts": document.getElementById("contacts").value,
+        "Address": document.getElementById("address").value,
+      }
+      var chip = document.getElementById("cname").value;
+      var chip1 = document.getElementById("contacts").value;
+      var chip2 = document.getElementById("address").value;
+      console.log(chip);
+      console.log(chip2);
+      console.log(chip1);
+      if (chip != "" && chip1 != "" && chip2 != "") {
+        myArray.push(arr);
+        var len = myArray.length - 1;
+        console.log(myArray);
+        console.log(len);
+        var row = ` <tr>
+          
+          <td> ${myArray[len].CandidateName}</td>
+          <td> ${myArray[len].Contacts}</td>
+          <td> ${myArray[len].Address}</td>
+          <td><button  onclick="productDelete(this)">Delete</button></td>
+
+          </tr>`
+        table.innerHTML += row
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      width: 100%;
+      float: left;
+      background-image: url("background.jpg")
+    }
+
+    .gg {
+      color: white;
+      width: 100%;
+      text-align: right;
+      padding-right: 171px;
+      padding-top: 16px;
+    }
+
+    .lg {
+      font-size: 25px;
+      padding-left: 10px;
+    }
+
+    p {
+      color: red;
+    }
+
+    .vv {
+      float: right;
+      background-color: #f2f2f2;
+      height: 450px;
+      border-radius: 5px;
+      width: 400px;
+      margin-right: 105px;
+      box-shadow: 1px 1px 7px grey;
+      margin-top: 10px;
+    }
+
+    .pd {
+      padding-top: 40px;
+    }
+
+    .box input[type=text],
+    select {
+      width: 90%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+
+
+    }
+
+    input[type=password],
+    select {
+      width: 90%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+
+
+    }
+
+    .water {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 80%;
+    }
+
+    #customers {
+      display: none;
+
+    }
+
+    #customers td,
+    #customers th {
+      border: 1px solid gray;
+      padding: 8px;
+    }
+
+    #customers tr {
+      background-color: white;
+    }
+
+    #customers tr:hover {
+      background-color: #ddd;
+    }
+
+    #customers th {
+      width: 14%;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .initial {
+      display: none;
+    }
+
+    .all {
+
+      position: relative;
+      float: left;
+      width: 100%;
+
+    }
+
+    .ball {
+      width: 90%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      font-size: 18px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+
+    }
+
+    .kgf {
+      float: left;
+
+    }
+
+    .cat {
+      background-color: white !important;
+    }
+
+    .action {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      position: relative;
+      float: left;
+      width: 80%;
+      display: none;
+      background-color: white;
+      margin-top: 15px;
+    }
+
+    .pet {
+      cursor: pointer;
+    }
+
+    button[type=button]:hover {
+      background-color: #45a049;
+    }
+
+    .car {
+      margin-top: 15px;
+    }
+
+    .post {
+      display: block;
+      width: 100%;
+      float: left;
+
+      position: relative;
+      padding-top: 55px;
+
+      margin-left: 128px
+    }
+
+    .box {
+      border-radius: 5px;
+      padding-left: 30px;
+    }
+
+    .the {
+
+      text-align: center;
+    }
+  </style>
+
+  <title>Greenitive Project</title>
+</head>
+
+<body>
+  <div class="all" id="hiding">
+    <h1 class="gg">Students Login</h1>
+    <div class="vv">
+      <div class="box">
+
+        <label for="fname" class="lg pd">Student name/E-mail ID</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name/E-mail..">
+
+        <label for="lname" class="lg ln">Password</label>
+        <input type="password" id="lname" name="lastname" placeholder="Your Password..">
+        <p class="pet">Forget my Password ?</p>
+
+        <button type="button" class="btn btn-primary ball" onclick="myFunction()">Log-in</button>
+
+      </div>
+      <div class="the">Create an Account ? <a style="color:red; cursor:pointer">Sign-in</a></div>
+
+    </div>
+  </div>
+  <!-- new table added -->
+  <div class="initial post" id="show">
+
+    <table id="customers" class="water col-lg-12 col-xl-12">
+      <tr>
+        <th>Candidate Name</th>
+        <th>Contacts</th>
+        <th>Address</th>
+        <th></th>
+      </tr>
+      <tbody id="mytable" class="col-lg-12">
+
+      </tbody>
+
+    </table>
+
+
+
+
+    <div class="action cat" id="shoe">
+      <div class="cat">
+        <div class="col-xl-3 col-lg-3 kgf">
+          <label for="fname" class="cat">Candidate Name</label><br>
+          <input type="text" id="cname" name="firstname" placeholder="Your name...">
+        </div>
+
+        <div class="col-xl-3 col-lg-3  kgf">
+          <label for="fname" class="cat">Contacts</label><br>
+          <input type="number" id="contacts" name="firstname" placeholder="Your Contacts..">
+        </div>
+        <div class="col-xl-3 col-lg-3 kgf">
+          <label for="fname" class="cat">Address</label><br>
+          <input type="text" id="address" name="firstname" placeholder="Your Address..">
+        </div>
+        <div class="col-xl-3 col-lg-3 kgf">
+          <button onclick="adding()" class="car">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Success</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          Log-in Successfully..
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+</body>
